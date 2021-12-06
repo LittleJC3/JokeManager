@@ -12,14 +12,17 @@ namespace JokeManagerNamespace
     {
         public static int SaveJoke(String UCID, String joke)
         {
+
             int status = 0;
             Config.login = "3045Fall2021FinalProjectLogin";
             Config.password = "Qbert42Fish";
             Config.server = "IL-Server-002.uccc.uc.edu\\Mssqlserver2019";
             Config.database = "3045Fall2021FinalProject";
-            status = Utils.ExecuteNonQuery("INSERT INTO tJoke(UCID, Joke) VALUES( 'nicholdw', 'a cow does something')", System.Data.CommandType.Text,null, null);
+            // Need to essentially take whats in the dialogue boxes and replace the VALUES below with them
+            status = Utils.ExecuteNonQuery("INSERT INTO tJoke(UCID, Joke) VALUES( '" + UCID + "', '" + joke + "')", System.Data.CommandType.Text,null, null);
 
             return status;
+            
         }
     }
     class Utils
